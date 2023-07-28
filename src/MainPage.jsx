@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import "./MainPage.css";
 import logo from "./assets/icons/Logo png.png";
@@ -18,27 +18,7 @@ import Close from "./assets/icons/Close.png";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isFooterVisible, setIsFooterVisible] = useState(false); // New state variable
-  const [mainContentHeight, setMainContentHeight] = useState(0); // New state variable
   const topRef = useRef(null);
-
-  useEffect(() => {
-    setMainContentHeight(topRef.current.getBoundingClientRect().height);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-
-      setIsFooterVisible(scrollPosition > mainContentHeight);
-    };
-    console.log('mainContentHeight-->', mainContentHeight);
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [mainContentHeight]); // Listen for changes to the mainContentHeight
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -76,8 +56,8 @@ const App = () => {
 
   return (
     <div className="app" ref={topRef}>
-      <div className="upper">
-        <div className="row">
+      <div className="upper" style={{height: "100vh"}}>
+        <div className="row" style={{height: "100%"}}>
           <div className="column">
             <div className="logo">
               <img src={logo} alt="GIF image" />
@@ -138,6 +118,7 @@ const App = () => {
                   position: "fixed",
                   bottom: "110px",
                   right: "20px",
+                  zIndex: 2,
                 }}
               >
                 <img src={Up} style={{ color: "white" }} />
@@ -167,102 +148,100 @@ const App = () => {
       </div>
 
       {/* FOOTER PART */}
-      {isFooterVisible && (
-        <div className="footer">
-          <video autoPlay loop muted playsInline className="footer-bg">
-            <source src={FooterLoop} type="video/mp4" />
-          </video>
-          {/* Left part of footer */}
-          <div className="left">
-            <h3>Education</h3>
-            <p style={{ fontWeight: "700", fontSize: "14px" }}>Bachelor of Engineering</p>
-            <p style={{ fontStyle: "italic", color: "rgba(255, 255, 255, 0.7)" }}>
-              2019-2023
-            </p>
-            <p style={{ color: "rgba(255, 255, 255, 0.7)" }}>MBM University</p>
-            <p style={{ color: "rgba(255, 255, 255, 0.7)" }}>
-              Jodhpur, Rajasthan, India
-            </p>
-            <br />
-            <p style={{ fontWeight: "bold" }}>HSC (Science with Mathematics)</p>
-            <p style={{ fontStyle: "italic", color: "rgba(255, 255, 255, 0.7)" }}>
-              2018
-            </p>
-            <p style={{ color: "rgba(255, 255, 255, 0.7)" }}>
-              {" "}
-              Delhi Public School
-            </p>
-            <p style={{ color: "rgba(255, 255, 255, 0.7)" }}>
-              Jodhpur, Rajasthan, India
-            </p>
-          </div>
+      <div className="footer" style={{zIndex: 1}}>
+        <video autoPlay loop muted playsInline className="footer-bg">
+          <source src={FooterLoop} type="video/mp4" />
+        </video>
+        {/* Left part of footer */}
+        <div className="left">
+          <h3>Education</h3>
+          <p style={{ fontWeight: "700", fontSize: "14px" }}>Bachelor of Engineering</p>
+          <p style={{ fontStyle: "italic", color: "rgba(255, 255, 255, 0.7)" }}>
+            2019-2023
+          </p>
+          <p style={{ color: "rgba(255, 255, 255, 0.7)" }}>MBM University</p>
+          <p style={{ color: "rgba(255, 255, 255, 0.7)" }}>
+            Jodhpur, Rajasthan, India
+          </p>
+          <br />
+          <p style={{ fontWeight: "bold" }}>HSC (Science with Mathematics)</p>
+          <p style={{ fontStyle: "italic", color: "rgba(255, 255, 255, 0.7)" }}>
+            2018
+          </p>
+          <p style={{ color: "rgba(255, 255, 255, 0.7)" }}>
+            {" "}
+            Delhi Public School
+          </p>
+          <p style={{ color: "rgba(255, 255, 255, 0.7)" }}>
+            Jodhpur, Rajasthan, India
+          </p>
+        </div>
 
-          {/* right part of footer */}
-          <div className="right">
-            <h3>Contact</h3>
+        {/* right part of footer */}
+        <div className="right">
+          <h3>Contact</h3>
 
-            <p><a
-              href="mailto:raghavgkk@gmail.com"
-              target="_blank"
-              rel="noreferrer"
+          <p><a
+            href="mailto:raghavgkk@gmail.com"
+            target="_blank"
+            rel="noreferrer"
 
-              style={{ color: "white", alignItems: "flex-start" }}
-            >raghavgkk@gmail.com</a></p>
-            <p style={{ paddingBottom: '10px', color: "white!important" }}><a
-              href="mailto:work.raghav99@gmail.com"
-              target="_blank"
-              rel="noreferrer"
+            style={{ color: "white", alignItems: "flex-start" }}
+          >raghavgkk@gmail.com</a></p>
+          <p style={{ paddingBottom: '10px', color: "white!important" }}><a
+            href="mailto:work.raghav99@gmail.com"
+            target="_blank"
+            rel="noreferrer"
 
-              style={{ color: "white", alignItems: "flex-start" }}
-            >work.raghav99@gmail.com</a></p>
-            <br />
-            <p style={{ fontWeight: "600" }}>+91 79762 14528</p>
-            <br />
-            <br />
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-              }} s
-            >
-              <div className="footer-icon-bar" style={{ marginLeft: '-18px' }}>
-                <a href="https://www.behance.net/raghavsharma3" target="_blank">
-                  <img
-                    src={Behance}
-                    className="footer-icon"
-                    style={{
-                      color: "white",
-                      width: "40px",
-                      height: "40px",
-                      paddingBottom: "11px",
-                    }}
-                  />
-                </a>
-                <a
-                  href="https://instagram.com/raghav._.xd?igshid=OGQ5ZDc2ODk2ZA=="
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <InstagramIcon
-                    className="footer-icon"
-                    style={{ color: "white" }}
-                  />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/-raghavsharma/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <LinkedInIcon
-                    className="footer-icon"
-                    style={{ color: "white" }}
-                  />
-                </a>
-              </div>
+            style={{ color: "white", alignItems: "flex-start" }}
+          >work.raghav99@gmail.com</a></p>
+          <br />
+          <p style={{ fontWeight: "600" }}>+91 79762 14528</p>
+          <br />
+          <br />
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+            }} s
+          >
+            <div className="footer-icon-bar" style={{ marginLeft: '-18px' }}>
+              <a href="https://www.behance.net/raghavsharma3" target="_blank">
+                <img
+                  src={Behance}
+                  className="footer-icon"
+                  style={{
+                    color: "white",
+                    width: "40px",
+                    height: "40px",
+                    paddingBottom: "11px",
+                  }}
+                />
+              </a>
+              <a
+                href="https://instagram.com/raghav._.xd?igshid=OGQ5ZDc2ODk2ZA=="
+                target="_blank"
+                rel="noreferrer"
+              >
+                <InstagramIcon
+                  className="footer-icon"
+                  style={{ color: "white" }}
+                />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/-raghavsharma/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <LinkedInIcon
+                  className="footer-icon"
+                  style={{ color: "white" }}
+                />
+              </a>
             </div>
           </div>
         </div>
-      )}
+      </div>
       <div className="last">
         Made with ❤️ by{" "}
         <span style={{ fontWeight: "600", color: "rgba(255, 255, 255, 1)" }}>
