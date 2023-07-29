@@ -56,21 +56,21 @@ const ProjectPage = () => {
       <HeaderBar />
       <LogoBar />
 
-
-      <IconButton
-        className="go-to-the-top"
-        onClick={scrollToTop}
-        disableRipple
-        style={{
-          position: "fixed",
-          bottom: "110px",
-          right: "40px",
-          zIndex: 2,
-        }}
-      >
-        <img src={Up} style={{ color: "white" }} />
-      </IconButton>
-
+        <div className="ham">
+          {/* for up arrow */}
+          <IconButton
+            className="go-to-the-top"
+            onClick={scrollToTop}
+            disableRipple
+            style={{
+              position: "fixed",
+              bottom: "110px",
+              right: "20px",
+            }}
+          >
+            <img src={Up} style={{ color: "white" }} />
+          </IconButton>
+        </div>
       <Box
         display="flex"
         flexWrap="wrap"
@@ -89,7 +89,7 @@ const ProjectPage = () => {
             title={item.title}
             description={item.description}
             routerLink={item.routerLink}
-            target="_blank"
+          // target="_blank"
           />
         ))}
         <ProjectItemForVideo
@@ -97,14 +97,14 @@ const ProjectPage = () => {
           title={"Looks Salon"}
           description={"Social Media | Visual Design"}
           routerLink={"/project/looks"}
-          target="_blank"
+        // target="_blank"
         />
         <ProjectItemData
           imageUrl={image5}
           title={"Raahi"}
           description={"UI UX | Case Study"}
           routerLink={"/project/raahi"}
-          target="_blank"
+        // target="_blank"
         />
         <ProjectItemForVideo
           imageUrl={image6}

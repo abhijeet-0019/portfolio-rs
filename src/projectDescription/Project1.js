@@ -90,12 +90,13 @@ const Project1 = () => {
             sx={{
               flexGrow: 1,
               width: "100%",
-              margin: "auto",
+              // margin: "auto",
               display: "block",
-              textAlign: "center", // Center the back icon
               "@media screen and (max-width: 768px)": {
-                width: "100%",
-                margin: "auto",
+                textAlign: "center", // Center align the icon on mobile screens
+              },
+              "@media screen and (min-width: 769px)": {
+                textAlign: "left", // Left align the icon on desktop screens
               },
             }}
           >

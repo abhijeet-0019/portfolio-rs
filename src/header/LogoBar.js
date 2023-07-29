@@ -7,9 +7,6 @@ import Toolbar from "@mui/material/Toolbar";
 // import IconButton from '@mui/material/IconButton';
 // import MenuIcon from '@mui/icons-material/Menu';
 import { Avatar } from "@mui/material";
-import video1 from "../assets/images/raghavLogo.gif";
-import { Link } from "react-router-dom";
-
 import logo from "../assets/icons/Logo png.png";
 const LogoBar = () => {
   return (

@@ -75,6 +75,7 @@ const App = () => {
               <img src={flamingo} alt="flamingo" />
             </div>
           </div>
+
           {/* col4: navbar  */}
           <div className="column">
             <div className="desktop-navbar">
@@ -87,19 +88,6 @@ const App = () => {
                 <img src={SouthEastIcon} className="icon" style={{ paddingLeft: '10px' }} />
               </Link>
             </div>
-            {/* for up arrow */}
-            <IconButton
-              className="go-to-the-top"
-              onClick={scrollToTop}
-              disableRipple
-              style={{
-                position: "fixed",
-                bottom: "110px",
-                right: "40px",
-              }}
-            >
-              <img src={Up} style={{ color: "white" }} />
-            </IconButton>
             <div className="ham">
               <IconButton
                 className="hamburger-menu"
@@ -121,7 +109,19 @@ const App = () => {
                 )}
               </IconButton>
 
-
+              {/* for up arrow */}
+              <IconButton
+                className="go-to-the-top"
+                onClick={scrollToTop}
+                disableRipple
+                style={{
+                  position: "fixed",
+                  bottom: "110px",
+                  right: "20px",
+                }}
+              >
+                <img src={Up} style={{ color: "white" }} />
+              </IconButton>
             </div>
             <Drawer anchor="right" open={isOpen} onClose={toggleDrawer(false)}>
               <Drawer
