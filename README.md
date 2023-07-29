@@ -1,7 +1,5 @@
 # Hi there, I'm Raghav Sharma 👋
 
-![Profile views](https://komarev.com/ghpvc/?username=yourusername&color=blueviolet)
-
 Welcome to my colorful realm of UX/UI Design! 🎨
 
 ## About Me 🧑‍💻
