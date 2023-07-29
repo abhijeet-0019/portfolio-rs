@@ -91,7 +91,7 @@ const Project4 = () => {
               <ArrowBackIcon
                 className="arrowIcon"
                 sx={{
-                  color: "#0101F6",
+                  color: "#EE00FF",
                   paddingTop: "50px",
                   fontSize: { xs: "80px", sm: "30px" },
                 }}
