@@ -294,7 +294,6 @@ html {
     font-size: 23px;
     text-decoration: none;
     font-weight: 700;
-
   }
 
   .nav-link:hover {
@@ -318,6 +317,20 @@ html {
     position: absolute;
     top: 21px;
     right: 21px;
+  }
+
+  .ham-project {
+    display: block;
+    position: absolute;
+    /* top: 21px; */
+  }
+  .ham-project {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    color: black;
   }
 
   .close-icon {
@@ -351,7 +364,7 @@ html {
     align-content: center;
     justify-content: flex-start;
     height: 600px;
-
+    margin-top: 300px;
   }
 
   .footer .left,
