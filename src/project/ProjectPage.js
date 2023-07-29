@@ -64,7 +64,7 @@ const ProjectPage = () => {
         style={{
           position: "fixed",
           bottom: "110px",
-          right: "20px",
+          right: "40px",
           zIndex: 2,
         }}
       >
